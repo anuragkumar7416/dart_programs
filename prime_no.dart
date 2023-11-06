@@ -10,7 +10,7 @@ void main(List<String> args) {
       
       if (i == (n ~/ 2)) {
         print('Prime No');
-        break;
+        break;     
       } else {
         continue;
       }
