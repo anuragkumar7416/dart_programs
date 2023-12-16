@@ -1,7 +1,12 @@
 import 'dart:io';
 
 void main(List<String> args) {
-  addMatrices();
+  // addMatrices();
+  setZeroes([
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1]
+  ]);
 }
 
 void addMatrices() {
@@ -48,4 +53,32 @@ void addMatrices() {
   }
 
   print("The Output is $matrixC");
+}
+
+void setZeroes(List<List<int>> matrix) {
+  int? x = null;
+  int? y = null;
+
+  for (int i = 0; i < matrix.length; i++) {
+    for (int j = 0; j < matrix[0].length; j++) {
+      if (matrix[i][j] == 0) {
+        x = i;
+        y = j;
+        matrix = makeZeroes(matrix, x ?? -1, y ?? -1);
+      }
+    }
+  }
+}
+
+List<List<int>> makeZeroes(List<List<int>> matrix, int x, int y) {
+  for (int i = 0; i < matrix.length; i++) {
+    matrix[x][i] = 0;
+  }
+
+  for (int i = 0; i < matrix.length; i++) {
+    matrix[i][y] = 0;
+  }
+  print(matrix);
+
+  return matrix;
 }
